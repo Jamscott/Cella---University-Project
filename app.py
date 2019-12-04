@@ -68,18 +68,9 @@ def alreadyExists(name):
 
 # PUBLIC ROUTING
 
-@app.route('/images/<name>')
-def artistImage(name):
-    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-    if alreadyExists(name):
-        artist = json.loads(getArtistByName(name))
-        fileName = artist.img + ".jpg"
-        print("Looking for file name: " + fileName)
-        try:
-            return send_file(os.path.join(SITE_ROOT, UPLOAD_FOLDER, fileName))
-        except Exception as e:
-            return str(e)
-    return abort(404)
+@app.route('/images/<path:path>')
+def send_js(path):
+    return send_from_directory('uploads', path)
 
 @app.route('/') 
 def basePage():
