@@ -135,9 +135,8 @@ def editRes():
             else:
                 file = request.files['image']
                 if file:
-                    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
                     file.filename = newFileName
-                    file.save(os.path.join(app.root_path, 'static', 'uploads', newFileName+'.jpg'))
+                    file.save(os.path.join('static', 'uploads', newFileName+'.jpg'))
         
         artists = mongo.db.artists
         artist = {
@@ -175,9 +174,8 @@ def addRes():
             return render_template('admin.html', data=getCurrentShowDetails(), artists=json.loads(getArtists())), 200 
         
         if file:
-            SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
             file.filename = newFileName
-            file.save(os.path.join(app.root_path, 'static', 'uploads', newFileName+'.jpg'))
+            file.save(os.path.join('static', 'uploads', newFileName+'.jpg'))
             
             
         artists = mongo.db.artists
