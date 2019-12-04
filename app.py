@@ -11,16 +11,16 @@ from flask import Flask, render_template, redirect, request, Response, session, 
 
 app = Flask(__name__,  static_url_path = "/static")
 
-mongo = PyMongo(app)
-
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static', 'uploads')
 ADMIN_PASSWORD = "burialuntrue"
 
 app.config['MONGO_URI'] = 'mongodb+srv://cellafm:hfSC7JfSdDOJtEMO@cellafm-iz32p.mongodb.net/test?retryWrites=true&w=majority'
 app.config['MONGO_PASS'] = "hfSC7JfSdDOJtEMO"
-app.config['UPLOAD_FOLDER'] = '/static/uploads'
-app.config['ADMIN_PASSWORD'] = 'burialuntrue'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['ADMIN_PASSWORD'] = ADMIN_PASSWORD
+
+mongo = PyMongo(app)
 
 app.secret_key = 'qergtdyujfaegrhtwejyrgysss'
 
