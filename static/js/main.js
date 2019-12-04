@@ -224,7 +224,10 @@ function updatePage() {
     $('#showAdd').click(function() {
         $('#addModal').modal('show');
     });
-    
+
+    var header = $('.res_header');
+    var img = $('.res_header').attr('data-img');
+    header.css('background-image', img)
         
     $('.back_button').click(function() {
         currentPage = "/residents"
