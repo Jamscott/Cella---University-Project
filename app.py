@@ -18,7 +18,7 @@ app.config['ADMIN_PASSWORD'] = 'burialuntrue'
 
 mongo = PyMongo(app)
 
-UPLOAD_FOLDER = 'static/uploads'
+UPLOAD_FOLDER = '/static/uploads'
 ADMIN_PASSWORD = "burialuntrue"
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
@@ -37,16 +37,6 @@ def requires_admin(f):
             return render_template('login.html'), 200
         return f(*args, **kws)
     return decorated
-
-def getData(url):
-    return json.load(requests.get(url).content)
-
-def getCurrentShowDetails():
-    liveInfo = mongo.db.live.find_one('current')
-    
-    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-    json_url = os.path.join(SITE_ROOT, "static/data", "currentshow.json")
-    return json.load(open(json_url))
 
 def getArtists():
     artists = mongo.db.artists
