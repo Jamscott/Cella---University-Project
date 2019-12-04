@@ -212,7 +212,7 @@ function updatePage() {
     
     var header = $('.res_header');
     var img = $('.res_header').attr('data-img');
-    header.css('background-image', 'url(static/uploads/' + img + '.jpg)')
+    header.css('background-image', 'url(/images/' + img + '.jpg)')
     
     
     $('.delbutton').click(function(){
