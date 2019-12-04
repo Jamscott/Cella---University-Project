@@ -6,7 +6,7 @@
     <ul class="artist_list">
         {% for a in data %}
             <li class="artist_card wow fadeIn"  data-wow-duration="1s" data-wow-delay=".4s" data-id="{{ a.name }}">
-                <img src='{{ url_for("images/"+ a.img+".jpg")}}'>
+                <img src='{{ url_for("static", "uploads/"+ a.img+".jpg")}}'>
                 <p>{{ a.name }}</p>
             </li>
         {% endfor %}

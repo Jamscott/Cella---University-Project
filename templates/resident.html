@@ -15,3 +15,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    var header = $('.res_header');
+    var img = $('.res_header').attr('data-img');
+    header.css('background-image', '{{ url_for("static", "uploads/"+ artist.img+".jpg")}}')
+</script>

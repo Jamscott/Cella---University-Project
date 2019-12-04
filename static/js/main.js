@@ -210,10 +210,6 @@ function updatePage() {
         });
     });
     
-    var header = $('.res_header');
-    var img = $('.res_header').attr('data-img');
-    header.css('background-image', 'url(/images/' + img + '.jpg)')
-    
     
     $('.delbutton').click(function(){
         var artist = $(this).attr("data-artist");
