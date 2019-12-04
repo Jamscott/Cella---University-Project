@@ -38,6 +38,16 @@ def requires_admin(f):
         return f(*args, **kws)
     return decorated
 
+def getData(url):
+    return json.load(requests.get(url).content)
+
+def getCurrentShowDetails():
+    liveInfo = mongo.db.live.find_one('current')
+    
+    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    json_url = os.path.join(SITE_ROOT, "static/data", "currentshow.json")
+    return json.load(open(json_url))
+
 def getArtists():
     artists = mongo.db.artists
     return json_util.dumps(artists.find({}))
