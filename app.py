@@ -137,7 +137,7 @@ def editRes():
                 if file:
                     SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
                     file.filename = newFileName
-                    file.save(os.path.join(UPLOAD_FOLDER, newFileName + ".jpg"))
+                    file.save(os.path.join(app.root_path, 'static', 'uploads', newFileName+'.jpg'))
         
         artists = mongo.db.artists
         artist = {
