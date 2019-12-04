@@ -11,15 +11,16 @@ from flask import Flask, render_template, redirect, request, Response, session, 
 
 app = Flask(__name__,  static_url_path = "/static")
 
+mongo = PyMongo(app)
+
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static', 'uploads')
+ADMIN_PASSWORD = "burialuntrue"
+
 app.config['MONGO_URI'] = 'mongodb+srv://cellafm:hfSC7JfSdDOJtEMO@cellafm-iz32p.mongodb.net/test?retryWrites=true&w=majority'
 app.config['MONGO_PASS'] = "hfSC7JfSdDOJtEMO"
 app.config['UPLOAD_FOLDER'] = '/static/uploads'
 app.config['ADMIN_PASSWORD'] = 'burialuntrue'
-
-mongo = PyMongo(app)
-
-UPLOAD_FOLDER = '/static/uploads'
-ADMIN_PASSWORD = "burialuntrue"
 
 app.secret_key = 'qergtdyujfaegrhtwejyrgysss'
 
@@ -136,7 +137,8 @@ def editRes():
                 if file:
                     SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
                     file.filename = newFileName
-                    file.save(os.path.join(SITE_ROOT, UPLOAD_FOLDER), newFileName + ".jpg")
+                    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], newFileName + '.jpg')
+                    file.save(full_filename)
         
         
         artists = mongo.db.artists
@@ -175,9 +177,9 @@ def addRes():
             return render_template('admin.html', data=getCurrentShowDetails(), artists=json.loads(getArtists())), 200 
         
         if file:
-            SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
             file.filename = newFileName
-            file.save(os.path.join(SITE_ROOT, UPLOAD_FOLDER), newFileName + ".jpg")
+            full_filename = os.path.join(app.config['UPLOAD_FOLDER'], newFileName + '.jpg')
+            file.save(full_filename)
         
             
             
