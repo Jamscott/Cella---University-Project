@@ -163,6 +163,9 @@ def addRes():
         description = request.form['description']
         header = request.form['header']
         newFileName = name.replace(' ', '_')
+
+        if alreadyExists(name):
+            return render_template('admin.html', data=getCurrentShowDetails(), artists=json.loads(getArtists()))
         
         if 'image' not in request.files:
             print("file not found")
