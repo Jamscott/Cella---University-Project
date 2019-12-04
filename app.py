@@ -13,7 +13,7 @@ app = Flask(__name__,  static_url_path = "/static")
 
 app.config['MONGO_URI'] = 'mongodb+srv://cellafm:hfSC7JfSdDOJtEMO@cellafm-iz32p.mongodb.net/test?retryWrites=true&w=majority'
 app.config['MONGO_PASS'] = "hfSC7JfSdDOJtEMO"
-app.config['UPLOAD_FOLDER'] = 'static/uploads'
+app.config['UPLOAD_FOLDER'] = '/static/uploads'
 app.config['ADMIN_PASSWORD'] = 'burialuntrue'
 
 mongo = PyMongo(app)
