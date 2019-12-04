@@ -7,7 +7,7 @@ import requests
 from bson import BSON
 from bson import json_util
 from flask_pymongo import PyMongo
-from flask import Flask, render_template, redirect, request, Response, session, url_for, flash, send_file
+from flask import Flask, render_template, redirect, request, Response, session, url_for, flash, send_file, send_from_directory
 
 app = Flask(__name__)
 
