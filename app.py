@@ -9,7 +9,7 @@ from bson import json_util
 from flask_pymongo import PyMongo
 from flask import Flask, render_template, redirect, request, Response, session, url_for, flash, send_file, send_from_directory
 
-app = Flask(__name__, static_folder='static', static_url_path='static')
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 app.config['MONGO_URI'] = 'mongodb+srv://cellafm:hfSC7JfSdDOJtEMO@cellafm-iz32p.mongodb.net/test?retryWrites=true&w=majority'
 app.config['MONGO_PASS'] = "hfSC7JfSdDOJtEMO"
