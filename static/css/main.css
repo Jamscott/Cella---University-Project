@@ -62,7 +62,7 @@ nav .nav_header {
     height: 70px;
 }
 
-nav .nav_header img {
+nav .nav_header svg {
     height: 40px;
     margin-top: 20px;
     padding: 0;
@@ -94,7 +94,7 @@ nav .nav_player:hover {
     cursor: pointer;
 }
 
-nav .nav_player svg {
+nav .nav_player img {
     float: left;
     height: 100%;
 }
