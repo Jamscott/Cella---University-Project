@@ -70,7 +70,9 @@ def alreadyExists(name):
 
 @app.route('/images/<path:path>')
 def send_js(path):
-    return send_from_directory('uploads', path)
+    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    PATH = os.path.join(SITE_ROOT, UPLOAD_FOLDER)
+    return send_from_directory(PATH, path)
 
 @app.route('/') 
 def basePage():
