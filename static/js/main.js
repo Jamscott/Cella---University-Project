@@ -227,6 +227,7 @@ function updatePage() {
 
     var header = $('.res_header');
     var img = $('.res_header').attr('data-img');
+    console.log(img);
     header.css('background-image', img)
         
     $('.back_button').click(function() {

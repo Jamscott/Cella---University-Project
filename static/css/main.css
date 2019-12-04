@@ -176,7 +176,7 @@ nav .nav_links ul li:hover {
     position: relative;
     height: 100%;
     width: 100%;
-    background-image: url(/images/hero.jpg);
+    background-image: url(/static/images/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 20px;
@@ -377,7 +377,7 @@ footer {
 }
 
 .res_header {
-    background-image: url(/images/hero.jpg);
+    background-image: url(/static/images/hero.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
