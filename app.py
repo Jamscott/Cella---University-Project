@@ -9,7 +9,7 @@ from bson import json_util
 from flask_pymongo import PyMongo
 from flask import Flask, render_template, redirect, request, Response, session, url_for, flash, send_file, send_from_directory
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 app.config['MONGO_URI'] = 'mongodb+srv://cellafm:hfSC7JfSdDOJtEMO@cellafm-iz32p.mongodb.net/test?retryWrites=true&w=majority'
 app.config['MONGO_PASS'] = "hfSC7JfSdDOJtEMO"
@@ -68,9 +68,9 @@ def alreadyExists(name):
 
 # PUBLIC ROUTING
 
-@app.route('/images/<path:path>')
-def send_js(path):
-    return send_from_directory("uploads", path)
+@app.route('/images/<name>')
+def sendImg(name):
+    return send_from_directory(app.static_folder, name)
 
 @app.route('/') 
 def basePage():
